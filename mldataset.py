@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 
 
-def iris():
+def iris(show=True):
     iris = load_iris()
 
     df = pd.DataFrame(iris.data, columns=iris.feature_names)
@@ -21,7 +21,8 @@ def iris():
     plt.title('Dataset')
     plt.xlabel('sepal length')
     plt.ylabel('sepal width')
-    plt.legend()
+    if show:
+        plt.legend()
     
     data = np.array(df.iloc[:100, [0, 1, -1]]) # 选择前100行，第0,1以及最后一列
     X, Y = data[:,:-1], data[:,-1]     # x have two features, y is label
